@@ -2,6 +2,7 @@ package com.joco.common;
 
 public class PhysicalData 
 {
+	private DeviceInfo deviceInfo;
 	private long timeStamp;
 	private double accelerationX;
 	private double accelerationY;
@@ -77,6 +78,12 @@ public class PhysicalData
 				.format("PhysicalData [accelerationX=%s, accelerationY=%s, accelerationZ=%s, accelerationTotal=%s, ambientTemperature=%s]",
 						accelerationX, accelerationY, accelerationZ,
 						accelerationTotal, ambientTemperature);
+	}
+	public DeviceInfo getDeviceInfo() {
+		return deviceInfo;
+	}
+	public void setDeviceInfo(DeviceInfo deviceInfo) {
+		this.deviceInfo = deviceInfo;
 	}
 	
 	

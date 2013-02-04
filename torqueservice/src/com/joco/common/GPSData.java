@@ -2,6 +2,7 @@ package com.joco.common;
 
 public class GPSData 
 {
+	private DeviceInfo deviceInfo;
 	private long timeStamp;
 	private double latitude;
 	private double longitude;
@@ -76,6 +77,12 @@ public class GPSData
 	}
 	public GPSData()
 	{
+	}
+	public DeviceInfo getDeviceInfo() {
+		return deviceInfo;
+	}
+	public void setDeviceInfo(DeviceInfo deviceInfo) {
+		this.deviceInfo = deviceInfo;
 	}
 	
 	

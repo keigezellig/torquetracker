@@ -2,6 +2,7 @@ package com.joco.common;
 
 public class CarData 
 {
+	private DeviceInfo deviceInfo;
 	private long timeStamp;
 	private double speed;
 	private double rpm;
@@ -64,6 +65,12 @@ public class CarData
 	}
 	public void setBatteryVoltage(double batteryVoltage) {
 		this.batteryVoltage = batteryVoltage;
+	}
+	public DeviceInfo getDeviceInfo() {
+		return deviceInfo;
+	}
+	public void setDeviceInfo(DeviceInfo deviceInfo) {
+		this.deviceInfo = deviceInfo;
 	}
 	public CarData(long timeStamp, double speed, double rpm,
 			double coolantTemperature, double torque, double fuelConsumption,

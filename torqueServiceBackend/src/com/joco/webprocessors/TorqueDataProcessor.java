@@ -1,4 +1,4 @@
-package com.joco.processors;
+package com.joco.webprocessors;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -47,10 +47,20 @@ public class TorqueDataProcessor implements IDataProcessor
 
     public DeviceInfo ProcessDeviceInfo(Map<String, String> values)
     {
+    	DeviceInfo result = new DeviceInfo();
     	String deviceId = values.get(TORQUE_TAGMAPPING.get(TagType.DEVICE_DEVICEID));
     	String sessionId = values.get(TORQUE_TAGMAPPING.get(TagType.DEVICE_SESSIONID));
     	
-    	return new DeviceInfo(Long.parseLong(sessionId),deviceId);
+    	if (deviceId != null)
+    	{
+    		result.setDeviceId(deviceId);
+    	}
+    	
+    	if (sessionId != null)
+    	{
+    		result.setSessionId(Long.parseLong(sessionId));
+    	}
+    	return result;
     	
     }
 	@Override

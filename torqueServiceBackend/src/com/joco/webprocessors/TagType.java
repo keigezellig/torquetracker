@@ -1,4 +1,4 @@
-package com.joco.processors;
+package com.joco.webprocessors;
 
 public enum TagType
 {

@@ -3,7 +3,7 @@ package com.joco.common;
 public class DeviceInfo 
 {
 	public long sessionId;
-	public String torqueId;
+	public String deviceId;
 	
 	public long getSessionId() {
 		return sessionId;
@@ -11,16 +11,16 @@ public class DeviceInfo
 	public void setSessionId(long sessionId) {
 		this.sessionId = sessionId;
 	}
-	public String getTorqueId() {
-		return torqueId;
+	public String getDeviceId() {
+		return deviceId;
 	}
-	public void setTorqueId(String torqueId) {
-		this.torqueId = torqueId;
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
 	}
-	public DeviceInfo(long sessionId, String torqueId) {
+	public DeviceInfo(long sessionId, String deviceId) {
 		super();
 		this.sessionId = sessionId;
-		this.torqueId = torqueId;
+		this.deviceId = deviceId;
 	}
 	
 	public DeviceInfo()

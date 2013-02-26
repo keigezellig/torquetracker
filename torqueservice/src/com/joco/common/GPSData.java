@@ -3,65 +3,65 @@ package com.joco.common;
 public class GPSData 
 {
 	private DeviceInfo deviceInfo;
-	private long timeStamp;
-	private double latitude;
-	private double longitude;
-	private double heading;
-	private double altitude;
-	private double speed;
-	private double accuracy;
+	private Long timeStamp;
+	private Double latitude;
+	private Double Longitude;
+	private Double heading;
+	private Double altitude;
+	private Double speed;
+	private Double accuracy;
 	
 	
-	public long getTimeStamp() {
+	public Long getTimeStamp() {
 		return timeStamp;
 	}
-	public void setTimeStamp(long timeStamp) {
+	public void setTimeStamp(Long timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 
-	public double getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(double latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
-	public double getLongitude() {
-		return longitude;
+	public Double getLongitude() {
+		return Longitude;
 	}
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
+	public void setLongitude(Double Longitude) {
+		this.Longitude = Longitude;
 	}
-	public double getHeading() {
+	public Double getHeading() {
 		return heading;
 	}
-	public void setHeading(double heading) {
+	public void setHeading(Double heading) {
 		this.heading = heading;
 	}
-	public double getAltitude() {
+	public Double getAltitude() {
 		return altitude;
 	}
-	public void setAltitude(double altitude) {
+	public void setAltitude(Double altitude) {
 		this.altitude = altitude;
 	}
-	public double getSpeed() {
+	public Double getSpeed() {
 		return speed;
 	}
-	public void setSpeed(double speed) {
+	public void setSpeed(Double speed) {
 		this.speed = speed;
 	}
 	
-	public double getAccuracy() {
+	public Double getAccuracy() {
 		return accuracy;
 	}
-	public void setAccuracy(double accuracy) {
+	public void setAccuracy(Double accuracy) {
 		this.accuracy = accuracy;
 	}
-	public GPSData(long timeStamp, double latitude, double longitude, double heading,
-			double altitude, double speed, double accuracy) {
+	public GPSData(Long timeStamp, Double latitude, Double Longitude, Double heading,
+			Double altitude, Double speed, Double accuracy) {
 		super();
 		this.timeStamp = timeStamp;
 		this.latitude = latitude;
-		this.longitude = longitude;
+		this.Longitude = Longitude;
 		this.heading = heading;
 		this.altitude = altitude;
 		this.speed = speed;
@@ -72,8 +72,8 @@ public class GPSData
 	@Override
 	public String toString() {
 		return String
-				.format("GPSData [latitude=%s, longitude=%s, heading=%s, altitude=%s, speed=%s]",
-						latitude, longitude, heading, altitude, speed);
+				.format("GPSData [latitude=%s, Longitude=%s, heading=%s, altitude=%s, speed=%s]",
+						latitude, Longitude, heading, altitude, speed);
 	}
 	public GPSData()
 	{

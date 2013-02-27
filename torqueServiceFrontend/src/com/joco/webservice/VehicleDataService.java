@@ -11,7 +11,10 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import com.joco.common.CarData;
+import com.joco.common.GPSData;
 import com.joco.common.IDataProcessor;
+import com.joco.common.PhysicalData;
 import com.joco.webprocessors.TorqueDataProcessor;
 
 @Path("/")
@@ -35,9 +38,13 @@ public class VehicleDataService
 		}
 		
 		IDataProcessor requestProcessor = new TorqueDataProcessor();
-		requestProcessor.ProcessCarData(dataToBeProcessed);
-		requestProcessor.ProcessGPSData(dataToBeProcessed);
-		requestProcessor.ProcessPhysicalData(dataToBeProcessed);
+		CarData cdata = requestProcessor.ProcessCarData(dataToBeProcessed);
+		GPSData gdata = requestProcessor.ProcessGPSData(dataToBeProcessed);
+		PhysicalData pdata = requestProcessor.ProcessPhysicalData(dataToBeProcessed);
+		
+		System.out.println(cdata);
+		System.out.println(gdata);
+		System.out.println(pdata);
 		
 		return Response.ok().build();
 		

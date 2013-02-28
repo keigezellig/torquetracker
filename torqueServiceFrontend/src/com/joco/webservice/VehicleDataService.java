@@ -11,11 +11,10 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import com.joco.common.CarData;
-import com.joco.common.GPSData;
-import com.joco.common.IDataProcessor;
-import com.joco.common.PhysicalData;
-import com.joco.webprocessors.TorqueDataProcessor;
+import com.joco.trackerservice.common.IRequestProcessor;
+import com.joco.trackerservice.common.RequestProcessorException;
+import com.joco.trackerservice.datawriter.ConsoleDataWriter;
+import com.joco.trackerservice.requestprocessor.TorqueRequestProcessor;
 
 @Path("/")
 public class VehicleDataService
@@ -37,14 +36,16 @@ public class VehicleDataService
 			dataToBeProcessed.put(key, requestData.getFirst(key));
 		}
 		
-		IDataProcessor requestProcessor = new TorqueDataProcessor();
-		CarData cdata = requestProcessor.ProcessCarData(dataToBeProcessed);
-		GPSData gdata = requestProcessor.ProcessGPSData(dataToBeProcessed);
-		PhysicalData pdata = requestProcessor.ProcessPhysicalData(dataToBeProcessed);
-		
-		System.out.println(cdata);
-		System.out.println(gdata);
-		System.out.println(pdata);
+		IRequestProcessor requestProcessor = new TorqueRequestProcessor(new ConsoleDataWriter());
+		try
+		{
+			requestProcessor.processRequest(dataToBeProcessed);
+		}
+		catch (RequestProcessorException ex)
+		{
+			return Response.serverError().build();
+			//Log
+		}
 		
 		return Response.ok().build();
 		

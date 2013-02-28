@@ -1,4 +1,4 @@
-package com.joco.common;
+package com.joco.trackerservice.common;
 
 public class GPSData 
 {

@@ -1,4 +1,4 @@
-package com.joco.webprocessors;
+package com.joco.trackerservice.requestprocessor;
 
 public enum TagType
 {

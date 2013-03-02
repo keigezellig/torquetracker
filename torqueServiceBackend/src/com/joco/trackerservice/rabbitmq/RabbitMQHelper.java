@@ -33,17 +33,18 @@ class RabbitMQHelper
 	    	  this.exchangeType = exchangeType;
 	      }
 	      
-	      public void SendMessage(String key, byte[] message) throws IOException
+	      public void sendMessage(String key, String message) throws IOException
 	      {
 	      	if (connectToRabbitMQ())
 	      	{
-	      		
-	      		channel.basicPublish(this.exchangeName, key, null, message);
+	      		System.out.println(key + "" + message);
+	      		byte[] toBeTransmitted = message.getBytes("UTF8");
+	      		channel.basicPublish(this.exchangeName, key, null, toBeTransmitted);
 	      	}
 	    	  
 	      }
 
-	      public void Close()
+	      public void close()
 	      {
 	          
 				try {

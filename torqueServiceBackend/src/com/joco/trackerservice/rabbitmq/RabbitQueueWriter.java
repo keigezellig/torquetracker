@@ -1,6 +1,7 @@
 package com.joco.trackerservice.rabbitmq;
 
 import com.google.gson.Gson;
+import com.google.inject.Inject;
 import com.joco.trackerservice.common.CarData;
 import com.joco.trackerservice.common.GPSData;
 import com.joco.trackerservice.common.IDataWriter;
@@ -15,10 +16,14 @@ public class RabbitQueueWriter implements IDataWriter
 	private Gson gson;
 	
 	
-	
+	@Inject
 	public RabbitQueueWriter(String broker)
 	{
-		//this.producer = new RabbitMQProducer(broker, "TRACKER_EXCHANGE", "direct");
+		
+		if (broker == null)
+		{
+			broker = "localhost";
+		}
 		this.rabbitMQHelper = new RabbitMQHelper(broker, "TRACKER_EXCHANGE", "direct");
 		this.gson = new Gson();
 	}

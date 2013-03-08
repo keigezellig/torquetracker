@@ -37,7 +37,7 @@ class RabbitMQHelper
 	      {
 	      	if (connectToRabbitMQ())
 	      	{
-	      		System.out.println(key + "" + message);
+	      		//System.out.println(key + "" + message);
 	      		byte[] toBeTransmitted = message.getBytes("UTF8");
 	      		channel.basicPublish(this.exchangeName, key, null, toBeTransmitted);
 	      	}

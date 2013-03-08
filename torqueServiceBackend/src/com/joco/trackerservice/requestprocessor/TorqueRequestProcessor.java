@@ -3,10 +3,12 @@ package com.joco.trackerservice.requestprocessor;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.inject.Inject;
 import com.joco.trackerservice.common.IDataWriter;
 
 public class TorqueRequestProcessor extends RequestProcessor {
 
+	@Inject
 	public TorqueRequestProcessor(IDataWriter datawriter) 
 	{
 		super(datawriter);

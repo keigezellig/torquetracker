@@ -11,7 +11,7 @@
   </welcome-file-list>
   
   
-  <servlet>
+  <!--  <servlet>
     <servlet-name>Jersey REST Service</servlet-name>
     <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
     <init-param>
@@ -24,5 +24,17 @@
   <servlet-mapping>
     <servlet-name>Jersey REST Service</servlet-name>
     <url-pattern>/rest/*</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
+  
+  <filter>
+        <filter-name>guiceFilter</filter-name>
+        <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>guiceFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+        <listener-class>com.joco.webservice.GuiceServletConfig</listener-class>
+    </listener>
 </web-app>

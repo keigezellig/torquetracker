@@ -11,6 +11,8 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import com.google.inject.Inject;
+import com.joco.trackerservice.common.IDataWriter;
 import com.joco.trackerservice.common.IRequestProcessor;
 import com.joco.trackerservice.common.RequestProcessorException;
 import com.joco.trackerservice.datawriter.ConsoleDataWriter;
@@ -20,6 +22,18 @@ import com.joco.trackerservice.requestprocessor.TorqueRequestProcessor;
 @Path("/")
 public class VehicleDataService
 {
+	
+	private final IRequestProcessor requestProcessor;
+	
+
+    @Inject
+    VehicleDataService(IRequestProcessor requestProcessor) 
+    {
+        this.requestProcessor = requestProcessor;
+        
+    }
+
+	
 	@GET
 	@Path("/torque")
 	public Response processTorqueData( 
@@ -37,7 +51,7 @@ public class VehicleDataService
 			dataToBeProcessed.put(key, requestData.getFirst(key));
 		}
 		
-		IRequestProcessor requestProcessor = new TorqueRequestProcessor(new RabbitQueueWriter("localhost"));
+		
 		try
 		{
 			requestProcessor.processRequest(dataToBeProcessed);

@@ -2,3 +2,6 @@
 *.apk
 bin
 gen
+/torqueServiceBackend/nbproject/private/
+/torqueServiceBackend/build
+/torqueServiceBackend/dist/
